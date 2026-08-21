@@ -1,3 +1,5 @@
+from learn_utils import average, describe_numbers
+
 # #(元组)tuple一旦定义完成,里面的所有元素都无法修改
 # # #tuple可存储不同类型的元素,和list唯一的区别是内部元素不可变
 
@@ -61,31 +63,25 @@ students =(
 # 1。计算每个学生的总分、各科平均分,然后一并输出出来。
 # 方式1：经典写法
 # for s in students:
-#     total = s[2]+s[3]+s[4]
-#     avg = total/3
+#     total = sum(s[2:])
+#     avg = average(s[2:])
 #     print(f"学号：{s[0]}\t姓名：{s[1]}\t总分：{total}\t平均分：{avg:.1f}")
 
 #方式2：通过元组解包进行赋值
 # for id,name,chinese,math,english in students:
-#     total = chinese + math + english
-#     avg = total/3
+#     scores = [chinese, math, english]
+#     total = sum(scores)
+#     avg = average(scores)
 #     print(f"学号：{id}\t姓名：{name}\t语文：{chinese}\t数学：{math}\t英语：{english}\t总分：{total}\t平均分：{avg:.1f}")
 
 # 2.统计各科成绩的最低分、最高分、平均分,并输出。
-# chinese_score = [s[2] for s in students]
-# print(sorted(chinese_score))
-# math_score = [s[3] for s in students]
-# print(sorted(math_score))
-# english_score = [s[4] for s in students]
-# print(sorted(english_score))
-
-# print(f"语文最高分为{max(chinese_score)},最低分为{min(chinese_score)}")
-# print(f"数学最高分为{max(math_score)},最低分为{min(math_score)}")
-# print(f"英语最高分为{max(english_score)},最低分为{min(english_score)}")
-
-# print(f"语文平均分为{sum(chinese_score)/len(chinese_score)}")
-# print(f"数学平均分为{sum(math_score)/len(math_score)}")
-# print(f"英语平均分为{sum(english_score)/len(english_score)}")
+# subjects = (("语文", 2), ("数学", 3), ("英语", 4))
+# for subject, index in subjects:
+#     scores = [s[index] for s in students]
+#     print(sorted(scores))
+#     lowest, highest, avg = describe_numbers(scores)
+#     print(f"{subject}最高分为{highest},最低分为{lowest}")
+#     print(f"{subject}平均分为{avg}")
 
 # 3.查找成绩优秀(平均分大于90)的学生,并输出
 
@@ -93,15 +89,16 @@ students =(
 # print("优秀学生名单如下")
 # print()
 # for s in students:
-#     total = s[2]+s[3]+s[4]
-#     avg = total/3
+#     total = sum(s[2:])
+#     avg = average(s[2:])
 #     if avg > 90:
 #         print(f"学号：{s[0]}\t姓名：{s[1]}\t总分：{total}\t平均分：{avg:.1f}")
 
 #方式2：通过元组解包进行赋值
 print("优秀学生名单如下")
 for id,name,chinese,math,english in students:
-    total = chinese + math + english
-    avg = total/3
+    scores = [chinese, math, english]
+    total = sum(scores)
+    avg = average(scores)
     if avg > 90:
          print(f"学号：{id}\t姓名：{name}\t总分：{total}\t平均分：{avg:.1f}")

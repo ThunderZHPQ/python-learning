@@ -1,3 +1,5 @@
+from learn_utils import sum_multiples
+
 """
 #while基础语法 输出10遍：while基础语法
 i = 0
@@ -53,8 +55,5 @@ print(f"1-100之间的奇数和为{total}")
 """
 
 #计算100-500之间所有3的倍数的和
-total = 0
-for i in range(100,501):
-    if i % 3 == 0:
-        total += i
+total = sum_multiples(100, 500, 3)
 print(f"100-500之间所有3的倍数的和是{total}")
