@@ -24,4 +24,14 @@ print(f"密码正确：{password}")
 
 #假设withdrwal_amount为str类型
 withdrawal_amount = input("请输入取款金额: ")
-print(f"剩余余额: {total - int(withdrawal_amount)}")
+try:
+    amount = int(withdrawal_amount)
+except ValueError:
+    raise SystemExit(f"取款金额无效：{withdrawal_amount}，请输入整数金额。")
+
+if amount <= 0:
+    raise SystemExit("取款金额必须大于0。")
+if amount > total:
+    raise SystemExit(f"余额不足：当前余额{total}元，无法取出{amount}元。")
+
+print(f"剩余余额: {total - amount}")
