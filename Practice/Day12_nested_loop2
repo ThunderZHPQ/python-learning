@@ -43,7 +43,12 @@ random_num = random.randint(1,100)#生成随机数
 
 
 while True:
-    num = int(input("请输入猜的数字"))
+    try:
+        num = int(input("请输入猜的数字"))
+    except ValueError:
+        print("请输入一个有效的整数！")
+        continue
+
     if(random_num > num):
         print("您输入的数字小了")
 
