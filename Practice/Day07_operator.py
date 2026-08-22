@@ -1,3 +1,5 @@
+from learn_utils import average, read_float, read_int
+
 #python中有四种运算符，分别是算术运算符、比较运算符、逻辑运算符和赋值运算符。
 
 #逻辑运算符：用于进行逻辑运算的运算符，包括与（and）、或（or）和非（not）。
@@ -24,15 +26,14 @@
 # print("(a + b) * 2 =", (a + b) * 2)  # 先计算a + b，再乘以2
 
 #输入x，y，z三个整数，计算它们的平均值，并输出结果。
-# x = int(input("请输入第一个整数x: "))
-# y = int(input("请输入第二个整数y: "))
-# z = int(input("请输入第三个整数z: "))
-# average = (x + y + z) / 3
-# print(f"三个整数的平均值为: {average}")
+# x = read_int("请输入第一个整数x: ")
+# y = read_int("请输入第二个整数y: ")
+# z = read_int("请输入第三个整数z: ")
+# print(f"三个整数的平均值为: {average([x, y, z])}")
 
 #输入身高体重，计算BMI指数，并输出结果。
-# height = float(input("请输入身高（米）: "))
-# weight = float(input("请输入体重（千克）: "))
+# height = read_float("请输入身高（米）: ")
+# weight = read_float("请输入体重（千克）: ")
 # bmi = weight / (height ** 2)
 # print(f"您的BMI指数为: {bmi:.2f}") #注意：float存在精度问题，可能会出现小数点后多位的情况，因此在输出时可以使用格式化字符串控制小数点位数。
 
@@ -50,8 +51,8 @@
 # print("a >= b:", a >= b) # 大于等于
 # print("a <= b:", a <= b) # 小于等于
 
-# x = int(input("请输入第一个整数x: "))
-# y = int(input("请输入第二个整数y: "))
+# x = read_int("请输入第一个整数x: ")
+# y = read_int("请输入第二个整数y: ")
 # print(f"x > y: {x > y}")  # 大于
 # print(f"x < y: {x < y}")  # 小于
 
@@ -62,8 +63,8 @@
 # print("not a:", not a)      # 非
 
 #输入一个整数，判断它是在10-20之间的数。
-# num = int(input("请输入一个整数: "))
+# num = read_int("请输入一个整数: ")
 # print(f"该整数是否在10-20之间: {num > 10 and num < 20}")  # 与运算
 #输入一个整数，判断它是否不在10-20之间的数。
-num = int(input("请输入一个整数: "))
+num = read_int("请输入一个整数: ")
 print(f"该整数是否不在10-20之间: {(num < 10 or num > 20)}")  # 非运算

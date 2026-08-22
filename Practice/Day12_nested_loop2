@@ -11,6 +11,8 @@
 # continue 中断本次循环，直接进入下次循环
 
 """
+accounts = {"admin": "666888", "zhangsan": "123456", "taoge": "888666"}
+
 while True:
     username = input("请输入账号：")
     password = input("请输入密码：")
@@ -19,13 +21,7 @@ while True:
         print("账号或密码不能为空")
         continue
 
-    if username == "admin" and password == "666888":
-        print("登录成功，进入B站首页~")
-        break
-    elif username == "zhangsan" and password == "123456":
-        print("登录成功，进入B站首页~")
-        break
-    elif username == "taoge" and password == "888666":
+    if check_login(username, password, accounts):
         print("登录成功，进入B站首页~")
         break
     else:
@@ -39,11 +35,14 @@ while True:
 
 #事先导入random
 import random
+
+from learn_utils import check_login, read_int
+
 random_num = random.randint(1,100)#生成随机数
 
 
 while True:
-    num = int(input("请输入猜的数字"))
+    num = read_int("请输入猜的数字")
     if(random_num > num):
         print("您输入的数字小了")
 

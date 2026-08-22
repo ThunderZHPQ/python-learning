@@ -1,18 +1,17 @@
+from learn_utils import dedupe, describe_numbers, read_int_list
+
 # 将用户输入的10个数字，存储到一个列表中，并将列表中的数字进行排序，输出其中的最小值、最大值和平均值。
 
-# num_list = []
-# for i in range(10):
-#     num = int(input("请输入数字"))
-#     num_list.append(num)#添加
-
+# num_list = read_int_list(10, "请输入数字")
 # print(num_list)
 
 # num_list.sort()#排序
 # print(num_list)
 
-# print(f"最小值为{min(num_list)}")
-# print(f"最大值为{max(num_list)}")
-# print(f"平均值为{sum(num_list)/len(num_list)}")
+# lowest, highest, avg = describe_numbers(num_list)
+# print(f"最小值为{lowest}")
+# print(f"最大值为{highest}")
+# print(f"平均值为{avg}")
     
 # 合并两个列表中的元素，并对合并的结果进行去重处理（去除列表中的重复元素）。
 # num_list1 = [19,23,54,875,20,109,232,123,54]
@@ -31,11 +30,7 @@
 # print(num_list3)
 
 # #去重复
-# new_list = []
-# for num in num_list3: #判il断new_list中，如果不存在，再添加
-#     if num not in new_list: #判断元素是否存在于列表中，如果存在，则返回True；不存在，返回False
-#         new_list.append(num)
-
+# new_list = dedupe(num_list3) #保留首次出现的顺序，去除重复元素
 # new_list.sort()
 # print(new_list)
 
