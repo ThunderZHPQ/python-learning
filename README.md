@@ -19,7 +19,18 @@
 
 ---
 
+## 🧪 运行单元测试
 
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+pytest
+```
+
+`tests/` 下的测试通过 `script_runner` 夹具执行 `Practice/` 中的脚本，自动替换 `input()` 并捕获输出，因此不需要修改练习代码。`pytest` 默认输出 `Practice/` 的覆盖率报告。
+
+---
 
 ## 📅 学习记录
 
