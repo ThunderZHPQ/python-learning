@@ -1,18 +1,18 @@
 # #(元组)tuple一旦定义完成,里面的所有元素都无法修改
 # # #tuple可存储不同类型的元素,和list唯一的区别是内部元素不可变
 
-# # t1 = (1,2,3,4,5,6,7,8,9,10)
+t1 = (1,2,3,4,5,6,7,8,9,10)
 
-# # #tuple的常用方法有2个,count()和index(),作用和list方法一样
+#tuple的常用方法有2个,count()和index(),作用和list方法一样
 
-# # print(t1)
-# # print(type(t1))
+# print(t1)
+# print(type(t1))
 
-# # print(t1[-1])
-# # print(t1[:5:2])
+# print(t1[-1])
+# print(t1[:5:2])
 
-# # print(t1.count(5))
-# # print(t1.index(9))
+# print(t1.count(5))
+# print(t1.index(9))
 
 # # #如果要定义单元素的tuple,需要在单元素后加上","
 # # t2 = (100,)

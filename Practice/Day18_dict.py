@@ -113,53 +113,292 @@
 #             print("请选择正确的功能")
 
 #方式2
-print("test")
-shopping = {"香蕉":{"price":1.98,"num":10}}
-function_list = {1:"添加购物车",2:"修改购物车",3:"删除购物车",4:"删除购物车",5:"退出购物车"}
-while(True):
+# print("test")
+# shopping = {"香蕉":{"price":1.98,"num":10}}
+# function_list = {1:"添加购物车",2:"修改购物车",3:"删除购物车",4:"删除购物车",5:"退出购物车"}
+# while(True):
     
-    function_choose = input("请选择您想要的功能:")
-    match function_choose:
-        case"1":
-            name = input("请输入需要添加的商品名称：")
-            if name in shopping:
-                print("该商品已存在")
+#     function_choose = input("请选择您想要的功能:")
+#     match function_choose:
+#         case"1":
+#             name = input("请输入需要添加的商品名称：")
+#             if name in shopping:
+#                 print("该商品已存在")
+#                 continue
+#             quantity = input("请输入商品的数量：")
+#             cost = input("请输入商品的价格：")
+#             shopping[name] = {"price":cost,"num":quantity}
+#             print("商品添加成功")
+
+#         case"2":
+#             name = input("请输入需要修改的商品名称：")
+#             if name in shopping:
+#                 quantity = input("请输入商品的数量：")
+#                 cost = input("请输入商品的价格：")
+#                 shopping[name] = {"price":cost,"num":quantity}
+#                 print("商品修改成功")
+#             else:
+#                 print("库存中没有该商品")
+#         case"3":
+#             name = input("请输入需要删除的商品名称：")
+#             if name in shopping:
+#                 del shopping[name]
+#                 print("商品已删除")
+#                 print(shopping)
+#             else:
+#                 print("库存中没有该商品")
+#         case"4":
+#             print("显示商品明细")
+#             for name in shopping.keys():
+#                 shopping_info = shopping[name]
+#                 print(f"商品名称：{name},商品数量：{shopping_info['num']},商品价格：{shopping_info['price']}")
+#         case"5":
+#             print("已退出购物车")
+#             break
+#         case _:
+#             print("请选择正确的功能")
+
+
+students = {
+    "张三": {
+        "语文": 90,
+        "数学": 85,
+        "英语": 92
+    },
+    "李四": {
+        "语文": 78,
+        "数学": 95,
+        "英语": 88
+    }
+}
+
+while True:
+
+    print("===== 教务管理系统 =====")
+    print("1. 添加学生信息")
+    print("2. 修改学生信息")
+    print("3. 删除学生信息")
+    print("4. 查询学生信息")
+    print("5. 列出所有学生")
+    print("6. 统计班级成绩")
+    print("7. 退出系统")
+
+    choose = input("请选择功能：")
+
+    match choose:
+
+        # =========================
+        # 1. 添加学生
+        # =========================
+        case "1":
+
+            name = input("请输入学生姓名：")
+
+            if name in students:
+                print("该学生已经存在")
                 continue
-            quantity = input("请输入商品的数量：")
-            cost = input("请输入商品的价格：")
-            shopping[name] = {"price":cost,"num":quantity}
-            print("商品添加成功")
 
-        case"2":
-            name = input("请输入需要修改的商品名称：")
-            if name in shopping:
-                quantity = input("请输入商品的数量：")
-                cost = input("请输入商品的价格：")
-                shopping[name] = {"price":cost,"num":quantity}
-                print("商品修改成功")
+            chinese = int(input("请输入语文成绩："))
+            math = int(input("请输入数学成绩："))
+            english = int(input("请输入英语成绩："))
+
+            students[name] = {
+                "语文": chinese,
+                "数学": math,
+                "英语": english
+            }
+
+            print("学生信息添加成功")
+
+
+        # =========================
+        # 2. 修改学生
+        # =========================
+        case "2":
+
+            name = input("请输入需要修改的学生姓名：")
+
+            if name not in students:
+                print("没有找到该学生")
+                continue
+
+            chinese = int(input("请输入新的语文成绩："))
+            math = int(input("请输入新的数学成绩："))
+            english = int(input("请输入新的英语成绩："))
+
+            students[name] = {
+                "语文": chinese,
+                "数学": math,
+                "英语": english
+            }
+
+            print("学生信息修改成功")
+
+
+        # =========================
+        # 3. 删除学生
+        # =========================
+        case "3":
+
+            name = input("请输入需要删除的学生姓名：")
+
+            if name in students:
+                del students[name]
+                print("学生信息删除成功")
             else:
-                print("库存中没有该商品")
-        case"3":
-            name = input("请输入需要删除的商品名称：")
-            if name in shopping:
-                del shopping[name]
-                print("商品已删除")
-                print(shopping)
+                print("没有找到该学生")
+
+
+        # =========================
+        # 4. 查询学生
+        # =========================
+        case "4":
+
+            name = input("请输入需要查询的学生姓名：")
+
+            if name in students:
+
+                student_info = students[name]
+
+                print(f"姓名：{name}")
+                print(f"语文：{student_info['语文']}")
+                print(f"数学：{student_info['数学']}")
+                print(f"英语：{student_info['英语']}")
+
             else:
-                print("库存中没有该商品")
-        case"4":
-            print("显示商品明细")
-            for name in shopping.keys():
-                shopping_info = shopping[name]
-                print(f"商品名称：{name},商品数量：{shopping_info['num']},商品价格：{shopping_info['price']}")
-        case"5":
-            print("已退出购物车")
+                print("没有找到该学生")
+
+
+        # =========================
+        # 5. 列出所有学生
+        # =========================
+        case "5":
+
+            if not students:
+                print("当前没有学生信息")
+                continue
+
+            print("===== 所有学生信息 =====")
+
+            for name, student_info in students.items():
+
+                print(
+                    f"姓名：{name}，"
+                    f"语文：{student_info['语文']}，"
+                    f"数学：{student_info['数学']}，"
+                    f"英语：{student_info['英语']}"
+                )
+
+
+        # =========================
+        # 6. 统计班级成绩
+        # =========================
+        case "6":
+
+            if not students:
+                print("当前没有学生信息")
+                continue
+
+            chinese_scores = []
+            math_scores = []
+            english_scores = []
+
+            for name, student_info in students.items():
+
+                chinese_scores.append(student_info["语文"])
+                math_scores.append(student_info["数学"])
+                english_scores.append(student_info["英语"])
+
+            # -------------------------
+            # 语文统计
+            # -------------------------
+
+            chinese_max = max(chinese_scores)
+            chinese_min = min(chinese_scores)
+            chinese_avg = sum(chinese_scores) / len(chinese_scores)
+
+            # -------------------------
+            # 数学统计
+            # -------------------------
+
+            math_max = max(math_scores)
+            math_min = min(math_scores)
+            math_avg = sum(math_scores) / len(math_scores)
+
+            # -------------------------
+            # 英语统计
+            # -------------------------
+
+            english_max = max(english_scores)
+            english_min = min(english_scores)
+            english_avg = sum(english_scores) / len(english_scores)
+
+            print("===== 班级成绩统计 =====")
+
+            print(
+                f"语文：最高分 {chinese_max}，"
+                f"最低分 {chinese_min}，"
+                f"平均分 {chinese_avg:.2f}"
+            )
+
+            print(
+                f"数学：最高分 {math_max}，"
+                f"最低分 {math_min}，"
+                f"平均分 {math_avg:.2f}"
+            )
+
+            print(
+                f"英语：最高分 {english_max}，"
+                f"最低分 {english_min}，"
+                f"平均分 {english_avg:.2f}"
+            )
+
+            # -------------------------
+            # 查找最高分和最低分学生
+            # -------------------------
+
+            print("===== 各科最高分学生 =====")
+
+            for name, student_info in students.items():
+
+                if student_info["语文"] == chinese_max:
+                    print(f"语文最高分：{name}，{chinese_max}")
+
+                if student_info["数学"] == math_max:
+                    print(f"数学最高分：{name}，{math_max}")
+
+                if student_info["英语"] == english_max:
+                    print(f"英语最高分：{name}，{english_max}")
+
+            print("===== 各科最低分学生 =====")
+
+            for name, student_info in students.items():
+
+                if student_info["语文"] == chinese_min:
+                    print(f"语文最低分：{name}，{chinese_min}")
+
+                if student_info["数学"] == math_min:
+                    print(f"数学最低分：{name}，{math_min}")
+
+                if student_info["英语"] == english_min:
+                    print(f"英语最低分：{name}，{english_min}")
+
+
+        # =========================
+        # 7. 退出系统
+        # =========================
+        case "7":
+
+            print("已退出教务管理系统")
             break
-        case _:
-            print("请选择正确的功能")
-        
 
-        
+
+        # =========================
+        # 输入错误
+        # =========================
+        case _:
+
+            print("请选择正确的功能")
         
 
 
