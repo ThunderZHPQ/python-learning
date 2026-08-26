@@ -1,9 +1,11 @@
+from learn_utils import read_int
+
 #嵌套循环的应用
 #根据输入的数值，打印出一个长度为M，宽为N的长方形
 
 """
-m = int(input("请输入长："))
-n = int(input("请输入宽："))
+m = read_int("请输入长：")
+n = read_int("请输入宽：")
 
 for i in range(m):
     for x in range(n):

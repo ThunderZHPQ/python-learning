@@ -1,3 +1,5 @@
+from learn_utils import reverse_text
+
 # # # 介绍：字符串是字符的容器，一个字符串中可以存放任意数量的字符。如："Python" 'Python' ""Python""
 # # # 特点：不可变性（无法修改）、有序性、可迭代性。
 # # # 字符串中的每一个字符元素都有其对应的下标（索引），通过元素对应的索引，就可以获取到对应的元素。
@@ -56,7 +58,7 @@
 
 #练习1：判断输入的字符串是否是回文
 # s1 = input("请输入语句:")
-# s2 = s1[::-1]
+# s2 = reverse_text(s1)
 
 # if s1 == s2:
 #     print("该段语句为回文")
@@ -66,7 +68,7 @@
 #练习2：用户输入任意字符串，将其全部反转后转为大写，最后遍历输出
 str_list1 = input("请输入任意字符串：")
 
-str_list2 = str_list1[::-1]
+str_list2 = reverse_text(str_list1)
 
 str_list3 = [str_list2,str_list2.upper()]
 
