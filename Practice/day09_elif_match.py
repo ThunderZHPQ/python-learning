@@ -39,9 +39,12 @@ match day:
 """
 
 #实现基于match-case的计算器功能
-num1 = float(input("请输入第一个数字: "))
-oper = input("请输入运算符号:")
-num2 = float(input("请输入第二个数:"))
+try:
+    num1 = float(input("请输入第一个数字: "))
+    oper = input("请输入运算符号:")
+    num2 = float(input("请输入第二个数:"))
+except ValueError:
+    raise SystemExit("输入不是有效的数字，程序退出。")
 
 match oper:
     case "+":
@@ -52,8 +55,10 @@ match oper:
         print(f"{num1} * {num2} = {num1*num2}")
     case "/" if num2 != 0:
         print(f"{num1} / {num2} = {num1/num2}")
+    case "/":
+        print("错误：除数不能为0")
     case _:
-        print("操作不支持")
+        print(f"不支持的运算符：{oper}")
 
 #match.·.case应用场景
 # match：基于某个变量的多个固定值进行分支判断时，可以使用match模式匹配
